@@ -1,0 +1,209 @@
+
+@import "tailwindcss";
+
+/* Banana Brain - Global Design System */
+
+@layer base {
+  :root {
+    --color-primary: #6d28d9;
+    --color-primary-dark: #5b21b6;
+    --color-primary-light: #ede9fe;
+    --color-accent: #fbbf24;
+    --color-accent-dark: #d97706;
+    --color-bg: #f7f7fc;
+    --color-card: #ffffff;
+    --color-text: #1e1b4b;
+    --color-muted: #64748b;
+    --color-success: #059669;
+    --color-error: #dc2626;
+    --color-warning: #d97706;
+    --color-border: #e9e7f2;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  ::selection {
+    background: #ddd6fe;
+    color: #4c1d95;
+  }
+
+  :focus-visible {
+    outline: 3px solid rgba(139, 92, 246, 0.45);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Buttons */
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           rounded-xl bg-violet-700 text-white font-semibold text-sm
+           shadow-sm shadow-violet-200
+           hover:bg-violet-800 hover:shadow-md hover:shadow-violet-200
+           active:scale-[0.98]
+           focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           rounded-xl bg-white text-violet-700 font-semibold text-sm
+           border border-violet-200
+           hover:bg-violet-50 hover:border-violet-300
+           active:scale-[0.98]
+           focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-all duration-200;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           rounded-xl bg-amber-400 text-amber-950 font-bold text-sm
+           shadow-sm shadow-amber-200
+           hover:bg-amber-500 hover:shadow-md
+           active:scale-[0.98]
+           focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-all duration-200;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           rounded-xl bg-red-600 text-white font-semibold text-sm
+           hover:bg-red-700 active:scale-[0.98]
+           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-all duration-200;
+  }
+
+  /* Cards */
+
+  .card {
+    @apply bg-white rounded-2xl border border-slate-100 p-6
+           shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  /* Form elements */
+
+  .input {
+    @apply w-full rounded-xl border border-slate-200 px-4 py-3
+           text-sm text-slate-800 placeholder-slate-400 bg-white
+           hover:border-violet-300
+           focus:outline-none focus:ring-4 focus:ring-violet-100
+           focus:border-violet-400
+           disabled:bg-slate-50 disabled:cursor-not-allowed
+           transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-sm font-semibold text-slate-700 mb-2;
+  }
+
+  /* Badges */
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .badge-success {
+    background-color: #d1fae5;
+    color: #047857;
+  }
+
+  .badge-error {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+
+  .badge-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+
+  .badge-info {
+    background-color: #ede9fe;
+    color: #6d28d9;
+  }
+
+  .badge-neutral {
+    background-color: #f1f5f9;
+    color: #475569;
+  }
+
+  /* Scrollbar */
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f0f7;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c4b5fd;
+    border-radius: 20px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8b5cf6;
+  }
+}
